@@ -94,7 +94,7 @@ def get_members_info(member_list):
 start = time.time()  # 시작 시간 저장
 
 # guildname = input("길드명을 입력해주세요 : ")
-guildname = "Adult"
+guildname = "LUSH"
 memberlist = get_member(guildname)
 get_members_info(memberlist)
 
