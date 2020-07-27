@@ -19,6 +19,11 @@ def get_member(guild_name):
     # driver = webdriver.Chrome(path)
 
     url = "https://maple.gg/guild/elysium/" + guild_name
+
+    # 정보갱신버튼을 누르도록 함
+    driver.find_element_by_xpath('//*[@id="btn-sync"]').click()
+    time.sleep(3)
+
     driver.get(url)
     driver.implicitly_wait(5)
     # guild_data = driver.find_element_by_xpath('//*[@id="guild-content"]/section')
