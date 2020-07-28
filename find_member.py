@@ -4,7 +4,7 @@ from openpyxl import Workbook
 from selenium import webdriver
 
 
-def get_member(guild_name):
+def get_member(guild_name, severname):
     # 멤버를 담을 공백 리스트 생성
     member_list = []
 
@@ -17,8 +17,10 @@ def get_member(guild_name):
     path = "./chromedriver"
     driver = webdriver.Chrome(path, chrome_options=options)
     # driver = webdriver.Chrome(path)
+    if servername == "엘리시움":
+        url_server = "elysium"
 
-    url = "https://maple.gg/guild/elysium/" + guild_name
+    url = "https://maple.gg/guild/" + url_server + "/" + guild_name
 
     # 정보갱신버튼을 누르도록 함
     driver.find_element_by_xpath('//*[@id="btn-sync"]').click()
@@ -75,8 +77,8 @@ def get_members_info(member_list):
             mureungdojang = driver.find_element_by_xpath(
                 '//*[@id="app"]/div[3]/div/section/div[1]/div[1]/section/div/div[1]/div/h1')
             print('{0} / {1}'.format(i, mureungdojang.text))
-            write_ws.cell(member_list.index(i)+2, 1, i)
-            write_ws.cell(member_list.index(i)+2, 2, mureungdojang.text)
+            write_ws.cell(member_list.index(i) + 2, 1, i)
+            write_ws.cell(member_list.index(i) + 2, 2, mureungdojang.text)
         except Exception as e:
             print(e)
 
@@ -85,7 +87,7 @@ def get_members_info(member_list):
                     '//*[@id="app"]/div[3]/div/section/div[1]/div[1]/section/div/div[3]/div/b')
                 print('{0} / 예전 무릉 {1}'.format(i, old_mureungdojang.text))
                 write_ws.cell(member_list.index(i) + 2, 1, i)
-                write_ws.cell(member_list.index(i) + 2, 2, "예전 무릉 "+old_mureungdojang.text)
+                write_ws.cell(member_list.index(i) + 2, 2, "예전 무릉 " + old_mureungdojang.text)
             except Exception as b:
                 print('{0} / 0 층'.format(i))
                 write_ws.cell(member_list.index(i) + 2, 1, i)
@@ -99,8 +101,9 @@ def get_members_info(member_list):
 start = time.time()  # 시작 시간 저장
 
 # guildname = input("길드명을 입력해주세요 : ")
-guildname = "반하나"
-memberlist = get_member(guildname)
+guildname = "Adult"
+servername = "엘리시움"
+memberlist = get_member(guildname, servername)
 get_members_info(memberlist)
 
 print("소요시간 :", time.time() - start)  # 현재시각 - 시작시간 = 실행 시간
