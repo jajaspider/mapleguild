@@ -102,7 +102,7 @@ def get_members_info(member_list):
             job_name = "패파"
         elif job.text == "아크메이지(썬,콜)":
             job_name = "썬콜"
-        elif job.text == "아크메이지(북,독)":
+        elif job.text == "아크메이지(불,독)":
             job_name = "불독"
         elif job.text == "나이트로드":
             job_name = "나로"
