@@ -48,8 +48,8 @@ def get_member(guild_name, servername):
 
 
 def get_members_info(member_list):
-    driver1 = webdriver.Chrome(path, chrome_options=options)
-    # driver1 = webdriver.Chrome(path)
+    # driver1 = webdriver.Chrome(path, chrome_options=options)
+    driver1 = webdriver.Chrome(path)
     # 엑셀 파일 경로 지정
     file_path = "./memberlist.xlsx"
     write_wb = Workbook()
@@ -161,8 +161,8 @@ options.add_argument('window-size=1920x1080')
 options.add_argument("disable-gpu")
 # 혹은 options.add_argument("--disable-gpu")
 path = "./chromedriver.exe"
-driver = webdriver.Chrome(path, chrome_options=options)
-# driver = webdriver.Chrome(path)
+# driver = webdriver.Chrome(path, chrome_options=options)
+driver = webdriver.Chrome(path)
 
 # guildname = input("길드명을 입력해주트세요 : ")
 guildname = "Adult"
