@@ -4,9 +4,6 @@ import re
 from openpyxl import Workbook
 from selenium import webdriver
 
-# 구글 시트 접근용 함수 생성
-def google_sheet():
-
 
 def get_member(guild_name, servername):
     # 멤버를 담을 공백 리스트 생성
